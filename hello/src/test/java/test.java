@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 public class test {
     @Test
+    @DisplayName("Say Hello Test")
     public  void sayHelloTest(){
         Hello hello = new Hello();
         String name = "Nuchy";
