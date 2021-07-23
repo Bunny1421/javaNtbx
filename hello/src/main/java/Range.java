@@ -11,7 +11,7 @@ public class Range {
 
     public int getStart() {
         if (isStartWithInclude()) return Character.getNumericValue(this.input.charAt(1));
-        else return Character.getNumericValue(this.input.charAt(1)+1);
+        else return Character.getNumericValue(this.input.charAt(1) + 1);
     }
 
     public boolean isEndWithInclude() {
@@ -20,15 +20,15 @@ public class Range {
 
     public int getEnd() {
         if (isEndWithInclude()) return Character.getNumericValue(this.input.charAt(3));
-        else return Character.getNumericValue(this.input.charAt(3)-1);
+        else return Character.getNumericValue(this.input.charAt(3) - 1);
     }
 
     public String getResult() {
         int numStart = getStart();
         int numEnd = getEnd();
         String result = "";
-        for (int i=numStart;i<=numEnd;i++){
-            result+=i;
+        for (int i = numStart; i <= numEnd; i++) {
+            result += i;
         }
         return result;
     }
