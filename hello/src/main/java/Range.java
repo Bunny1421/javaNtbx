@@ -14,8 +14,6 @@ public class Range {
         else return Character.getNumericValue(this.input.charAt(1)+1);
     }
 
-
-
     public boolean isEndWithInclude() {
         return this.input.endsWith("]");
     }
