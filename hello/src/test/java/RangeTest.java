@@ -59,4 +59,12 @@ public class RangeTest {
         int resultEndIn = myRangeEndIn.getEnd();
         assertEquals(4,resultEndIn);
     }
+
+    @Test
+    @DisplayName("test result")
+    public  void result(){
+        Range myRangeEndEx = new Range("[1,5]");
+        String resultAllIn = myRangeEndEx.getResult();
+        assertEquals("12345",resultAllIn);
+    }
 }
