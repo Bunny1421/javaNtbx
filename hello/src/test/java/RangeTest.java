@@ -21,7 +21,7 @@ public class RangeTest {
     }
 
     @Test
-    @DisplayName("input (1,5] start with ( (exclude) result is false")
+    @DisplayName("test start input number ")
     public  void startWithNumber(){
         Range myRangeex = new Range("(1,5]");
         int resultex = myRangeex.getStart();
