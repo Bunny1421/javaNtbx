@@ -32,8 +32,6 @@ public class RangeTest {
         assertEquals(1,resultin);
     }
 
-
-
     @Test
     @DisplayName("input [1,5] end with ] (include) result is true")
     public  void endWithInclude(){
@@ -50,7 +48,7 @@ public class RangeTest {
         assertFalse(result);
     }
 
-        @Test
+    @Test
     @DisplayName("test end input number ")
     public  void endWithNumber(){
         Range myRangeEndEx = new Range("[1,5]");
