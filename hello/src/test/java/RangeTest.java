@@ -31,4 +31,34 @@ public class RangeTest {
         int resultin = myRangein.getStart();
         assertEquals(1,resultin);
     }
+
+
+
+    @Test
+    @DisplayName("input [1,5] end with ] (include) result is true")
+    public  void endWithInclude(){
+        Range myRange = new Range("[1,5]");
+        boolean result = myRange.isEndWithInclude();
+        assertTrue(result);
+    }
+
+    @Test
+    @DisplayName("input [1,5) end with ) (exclude) result is false")
+    public  void endWithExclude(){
+        Range myRange = new Range("[1,5)");
+        boolean result = myRange.isEndWithInclude();
+        assertFalse(result);
+    }
+
+        @Test
+    @DisplayName("test end input number ")
+    public  void endWithNumber(){
+        Range myRangeEndEx = new Range("[1,5]");
+        int resultEndEx = myRangeEndEx.getEnd();
+        assertEquals(5,resultEndEx);
+
+        Range myRangeEndIn = new Range("[1,5)");
+        int resultEndIn = myRangeEndIn.getEnd();
+        assertEquals(4,resultEndIn);
+    }
 }

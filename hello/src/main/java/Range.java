@@ -13,4 +13,15 @@ public class Range {
         if (isStartWithInclude()) return Character.getNumericValue(this.input.charAt(1));
         else return Character.getNumericValue(this.input.charAt(1)+1);
     }
+
+
+
+    public boolean isEndWithInclude() {
+        return this.input.endsWith("]");
+    }
+
+    public int getEnd() {
+        if (isEndWithInclude()) return Character.getNumericValue(this.input.charAt(3));
+        else return Character.getNumericValue(this.input.charAt(3)-1);
+    }
 }
