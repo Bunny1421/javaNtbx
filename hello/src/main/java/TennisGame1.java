@@ -20,58 +20,46 @@ public class TennisGame1 {
     }
 
     public String getScore() {
-        StringBuilder score = new StringBuilder();
-        if (m_score1==m_score2)
-        {
-            switch (m_score1)
-            {
-                case 0:
-                    score = new StringBuilder("Love-All");
-                    break;
-                case 1:
-                    score = new StringBuilder("Fifteen-All");
-                    break;
-                case 2:
-                    score = new StringBuilder("Thirty-All");
-                    break;
-                default:
-                    score = new StringBuilder("Deuce");
-                    break;
+        String[] scoreResults = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
 
-            }
+        int diffScore = m_score1 - m_score2;
+
+        // Win
+        if ((m_score1 >= 4 || m_score2 >= 4) && Math.abs(diffScore) >= 2) {
+            StringBuilder score = new StringBuilder();
+            if (diffScore >= 2) score = new StringBuilder("Win for ").append(this.player1Name);
+            else score = new StringBuilder("Win for ").append(this.player2Name);
+            return score.toString();
         }
-        else if (m_score1>=4 || m_score2>=4)
-        {
-            int minusResult = m_score1-m_score2;
-            if (minusResult==1) score = new StringBuilder("Advantage player1");
-            else if (minusResult ==-1) score = new StringBuilder("Advantage player2");
-            else if (minusResult>=2) score = new StringBuilder("Win for player1");
-            else score = new StringBuilder("Win for player2");
+
+        // Advantage
+        if ((m_score1 >= 4 || m_score2 >= 4) && Math.abs(diffScore) == 1) {
+            StringBuilder score = new StringBuilder();
+            if (diffScore == 1) score = new StringBuilder("Advantage ").append(this.player1Name);
+            else if (diffScore == -1) score = new StringBuilder("Advantage ").append(this.player2Name);
+            return score.toString();
         }
-        else
-        {
-            for (int i=1; i<3; i++)
-            {
-                int tempScore;
-                if (i==1) tempScore = m_score1;
-                else { score.append("-"); tempScore = m_score2;}
-                switch(tempScore)
-                {
-                    case 0:
-                        score.append("Love");
-                        break;
-                    case 1:
-                        score.append("Fifteen");
-                        break;
-                    case 2:
-                        score.append("Thirty");
-                        break;
-                    case 3:
-                        score.append("Forty");
-                        break;
-                }
-            }
+
+        // Deuce
+        if (isDeuce()) {
+            // Deuce
+            return "Deuce";
         }
-        return score.toString();
+
+        // All
+        if (isAll()) {
+            return scoreResults[m_score1] + "-" + "All";
+        }
+
+        // Normal game
+        return scoreResults[m_score1] + "-" + scoreResults[m_score2];
+    }
+
+    private boolean isDeuce() {
+        return m_score1 == m_score2 && m_score1 > 2;
+    }
+
+    private boolean isAll() {
+        return m_score1 == m_score2 && m_score1 <= 2;
     }
 }
