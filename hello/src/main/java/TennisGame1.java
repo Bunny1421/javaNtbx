@@ -23,7 +23,6 @@ public class TennisGame1 {
         String[] scoreResults = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
 
         int diffScore = m_score1 - m_score2;
-
         // Win
         if ((m_score1 >= 4 || m_score2 >= 4) && Math.abs(diffScore) >= 2) {
             StringBuilder score = new StringBuilder();
@@ -31,7 +30,6 @@ public class TennisGame1 {
             else score = new StringBuilder("Win for ").append(this.player2Name);
             return score.toString();
         }
-
         // Advantage
         if ((m_score1 >= 4 || m_score2 >= 4) && Math.abs(diffScore) == 1) {
             StringBuilder score = new StringBuilder();
@@ -39,18 +37,15 @@ public class TennisGame1 {
             else if (diffScore == -1) score = new StringBuilder("Advantage ").append(this.player2Name);
             return score.toString();
         }
-
         // Deuce
         if (isDeuce()) {
             // Deuce
             return "Deuce";
         }
-
         // All
         if (isAll()) {
             return scoreResults[m_score1] + "-" + "All";
         }
-
         // Normal game
         return scoreResults[m_score1] + "-" + scoreResults[m_score2];
     }
