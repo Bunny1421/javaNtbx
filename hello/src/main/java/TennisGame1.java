@@ -25,7 +25,7 @@ public class TennisGame1 {
         int diffScore = m_score1 - m_score2;
         // Win
         if ((m_score1 >= 4 || m_score2 >= 4) && Math.abs(diffScore) >= 2) {
-            StringBuilder score = new StringBuilder();
+            StringBuilder score ;
             if (diffScore >= 2) score = new StringBuilder("Win for ").append(this.player1Name);
             else score = new StringBuilder("Win for ").append(this.player2Name);
             return score.toString();
